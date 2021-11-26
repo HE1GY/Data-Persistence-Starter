@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
 {
+   [SerializeField] MainMenu mainManu;
+
     public Brick BrickPrefab;
     public int LineCount = 6;
     public Rigidbody Ball;
@@ -13,12 +15,13 @@ public class MainManager : MonoBehaviour
     public Text ScoreText;
     public GameObject GameOverText;
     
-    private bool m_Started = false;
+    private bool m_Started = false; // start game
     private int m_Points;
     
     private bool m_GameOver = false;
 
     
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,5 +75,6 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+        mainManu.RefreshbestPoint(m_Points);
     }
 }
